@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fb0e6e4b-4130-4650-add6-fe629dd16dbf/deploy-status)](https://app.netlify.com/sites/holiday-family-name-matcher/deploys)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
