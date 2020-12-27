@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react"
-import FamilyColumn from "./familyColumn"
+import React from "react";
+import FamilyColumn from "./familyColumn";
 
-const Family = ({ columns }) => {
-  return columns.map(family => (
+const Family = ({ columns, addNewInput, fullFamily, updateFamilyMember }) => {
+  return columns.map((family, index) => (
     <div style={{ display: "flex" }}>
-      <FamilyColumn />
+      <FamilyColumn
+        index={index}
+        addNewInput={addNewInput}
+        updateFamilyMember={updateFamilyMember}
+        fullFamily={fullFamily}
+      />
     </div>
-  ))
-}
+  ));
+};
 
-export default Family
+export default Family;

@@ -47,24 +47,24 @@ const gowanFamily = [
     family: 4,
     selected: false,
   },
-]
+];
 
-const giftList = familyToMatch => {
-  const selectedMatch = []
+export const giftList = familyToMatch => {
+  const selectedMatch = [];
   familyToMatch.map(child => {
     while (true) {
-      const randomSelection = Math.floor(Math.random() * familyToMatch.length)
+      const randomSelection = Math.floor(Math.random() * familyToMatch.length);
       if (
         familyToMatch[randomSelection].family !== child.family &&
         !familyToMatch[randomSelection].selected
       ) {
         selectedMatch.push(
           `${child.name} => ${familyToMatch[randomSelection].name}`
-        )
-        familyToMatch[randomSelection].selected = true
-        break
+        );
+        familyToMatch[randomSelection].selected = true;
+        break;
       }
     }
-  })
-  return selectedMatch
-}
+  });
+  return selectedMatch;
+};

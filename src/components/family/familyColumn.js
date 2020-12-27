@@ -1,38 +1,16 @@
-import React, { useState } from "react"
+import React from "react";
 // import FamilyInput from './familyInput';
 
-const FamilyColumn = props => {
-  const [familyMembers, setFamilyMembers] = useState([
-    {
-      id: 1,
-      name: null,
-      family: null,
-      selected: false,
-    },
-  ])
-
-  const updateFamilyMember = (memberName, memberId) => {
-    const members = [...familyMembers]
-    const memberToUpdate = members.find(member => member.id === memberId)
-    memberToUpdate.name = memberName
-
-    setFamilyMembers(members)
-  }
-
-  const addNewInput = () => {
-    const members = [...familyMembers]
-    members.push({
-      id: members.length + 1,
-      name: null,
-      family: null,
-      selected: false,
-    })
-    setFamilyMembers(members)
-  }
-
+const FamilyColumn = ({
+  addNewInput,
+  fullFamily,
+  index,
+  updateFamilyMember,
+}) => {
+  const familyColumn = fullFamily.filter(family => family.family === index);
   return (
     <div>
-      {familyMembers.length === 0 && (
+      {familyColumn.length === 0 && (
         <div style={{ margin: "10px" }}>
           <input
             type="text"
@@ -40,7 +18,7 @@ const FamilyColumn = props => {
           />
         </div>
       )}
-      {familyMembers.map(member => {
+      {familyColumn.map(member => {
         if (member) {
           return (
             <div style={{ margin: "10px" }}>
@@ -50,7 +28,7 @@ const FamilyColumn = props => {
                 onChange={e => updateFamilyMember(e.target.value, member.id)}
               />
             </div>
-          )
+          );
         } else {
           return (
             <div style={{ margin: "10px" }}>
@@ -59,14 +37,14 @@ const FamilyColumn = props => {
                 onChange={e => updateFamilyMember(e.target.value)}
               />
             </div>
-          )
+          );
         }
       })}
-      <div style={{ margin: "10px" }} onClick={addNewInput}>
+      <div style={{ margin: "10px" }} onClick={() => addNewInput(index)}>
         <button>Add Family Member</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FamilyColumn
+export default FamilyColumn;
