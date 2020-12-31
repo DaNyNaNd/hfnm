@@ -1,5 +1,4 @@
 import React from "react";
-// import FamilyInput from './familyInput';
 
 const FamilyColumn = ({
   addNewInput,
@@ -10,14 +9,6 @@ const FamilyColumn = ({
   const familyColumn = fullFamily.filter(family => family.family === index);
   return (
     <div>
-      {familyColumn.length === 0 && (
-        <div style={{ margin: "10px" }}>
-          <input
-            type="text"
-            onChange={e => updateFamilyMember(e.target.value, 1)}
-          />
-        </div>
-      )}
       {familyColumn.map(member => {
         if (member) {
           return (
