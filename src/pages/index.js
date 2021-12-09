@@ -44,13 +44,9 @@ const IndexPage = () => {
 
   const matchMembers = () => {
     if (familyColumns.length === 1) return;
-    if (fullFamily.length % 2 === 1) {
-      alert("You have an odd number of entries. Someone would be left out!");
-      return;
-    }
     const familyToMatch = [...fullFamily];
     familyToMatch.forEach(member => (member.selected = false));
-    const matchFamily = giftList(fullFamily);
+    const matchFamily = giftList(familyToMatch);
     setMatchedFamily(matchFamily);
     setFullFamily([initialList]);
     setFamilyColumns([1]);
@@ -62,7 +58,6 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <h2>Add your family members.</h2>
-      <h3> Make sure it's an even number, or someone might be left out!</h3>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         <Family
           addNewInput={addNewInput}
