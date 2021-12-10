@@ -56,7 +56,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Holiday Family Name Matcher" />
       <h2>Add your family members.</h2>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         <Family
